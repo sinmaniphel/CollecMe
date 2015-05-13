@@ -1,0 +1,3 @@
+collec_me_collection_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: CollecMeCollectionBundle:Default:index }

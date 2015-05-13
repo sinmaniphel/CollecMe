@@ -1,0 +1,122 @@
+<?php
+
+namespace CollecMe\CollectionBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * RoleAssociation
+ *
+ * @ORM\Table()
+ * @ORM\Entity
+ */
+class RoleAssociation
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="since", type="datetime")
+     */
+    private $since;
+
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set since
+     *
+     * @param \DateTime $since
+     * @return RoleAssociation
+     */
+    public function setSince($since)
+    {
+        $this->since = $since;
+
+        return $this;
+    }
+
+    /**
+     * Get since
+     *
+     * @return \DateTime
+     */
+    public function getSince()
+    {
+        return $this->since;
+    }
+
+    /**
+    * @ORM\ManyToOne(targetEntity="AppUser")
+    */
+    private $appUser;
+
+    /**
+    * @ORM\ManyToOne(targetEntity="AppRole")
+    */
+    private $appRole;
+
+
+
+    /**
+     * Set appUser
+     *
+     * @param \CollecMe\CollectionBundle\Entity\AppUser $appUser
+     * @return RoleAssociation
+     */
+    public function setAppUser(\CollecMe\CollectionBundle\Entity\AppUser $appUser = null)
+    {
+        $this->appUser = $appUser;
+
+        return $this;
+    }
+
+    /**
+     * Get appUser
+     *
+     * @return \CollecMe\CollectionBundle\Entity\AppUser
+     */
+    public function getAppUser()
+    {
+        return $this->appUser;
+    }
+
+    /**
+     * Set appRole
+     *
+     * @param \CollecMe\CollectionBundle\Entity\AppUser $appRole
+     * @return RoleAssociation
+     */
+    public function setAppRole(\CollecMe\CollectionBundle\Entity\AppRole $appRole = null)
+    {
+        $this->appRole = $appRole;
+
+        return $this;
+    }
+
+    /**
+     * Get appRole
+     *
+     * @return \CollecMe\CollectionBundle\Entity\AppUser
+     */
+    public function getAppRole()
+    {
+        return $this->appRole;
+    }
+}
