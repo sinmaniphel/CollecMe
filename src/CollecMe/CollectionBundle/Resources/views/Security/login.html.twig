@@ -1,9 +1,21 @@
 {% extends 'CollecMeCollectionBundle::colme_layout.html.twig'%}
 
 {% block content %}
-  <ul>
-    {% for user in users %}
-      <li>{{ user.login }}</li>
-    {% endfor %}
-  </ul>
+  <div class="col-lg-3" ></div>
+  <div class="col-lg-6" >
+    <form class="form-horizontal" action="{{ path('login_check_route')}}" method="post">
+      <h2 class="form-signin-heading">Veuillez entrer vos identifiants</h2>
+      <label for="inputLogin" class="sr-only">login</label>
+      <input class="form-control" placeholder="Identifiant" type="text" name="_username">
+        <label for="inputPassword" class="sr-only">Password</label>
+      <input type="password" id="inputPassword" class="form-control" placeholder="Mot de Passe" name="_password" required>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="remember-me"> Remember me
+        </label>
+      </div>
+      <button class="btn btn-primary btn-block" type="submit">Sign in</button>
+    </form>
+  </div>
+  <div class="col-lg-3" ></div>
 {% endblock %}
