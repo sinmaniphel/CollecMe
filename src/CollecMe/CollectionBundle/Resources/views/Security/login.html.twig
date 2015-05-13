@@ -5,10 +5,10 @@
   <div class="col-lg-6" >
     <form class="form-horizontal" action="{{ path('login_check_route')}}" method="post">
       <h2 class="form-signin-heading">Veuillez entrer vos identifiants</h2>
-      <label for="inputLogin" class="sr-only">login</label>
-      <input class="form-control" placeholder="Identifiant" type="text" name="_username">
-        <label for="inputPassword" class="sr-only">Password</label>
-      <input type="password" id="inputPassword" class="form-control" placeholder="Mot de Passe" name="_password" required>
+      <label for="username" class="sr-only">login</label>
+      <input class="form-control" id="username" placeholder="Identifiant" type="text" name="_username">
+        <label for="password" class="sr-only">Password</label>
+      <input type="password" id="password" class="form-control" placeholder="Mot de Passe" name="_password" required>
       <div class="checkbox">
         <label>
           <input type="checkbox" value="remember-me"> Remember me

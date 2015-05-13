@@ -2,9 +2,9 @@
 
 namespace CollecMe\CollectionBundle\Repository;
 use Doctrine\ORM\EntityRepository;
-use CollecMe\CollectionBundle\AppUser;
-use CollecMe\CollectionBundle\AppRole;
-use CollecMe\CollectionBundle\RoleAssociation;
+use CollecMe\CollectionBundle\Entity\AppUser;
+use CollecMe\CollectionBundle\Entity\AppRole;
+use CollecMe\CollectionBundle\Entity\RoleAssociation;
 
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\UserProviderInterface;
@@ -13,22 +13,27 @@ use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
 
 class SecurityRepository extends EntityRepository implements UserProviderInterface {
 
-  public function addUserRoles($appUser) {
-    var_dump($appUser);
+  public function addUserRoles(UserInterface $appUser) {
+    $userId = $appUser->getId();
+
+    $this->
+
     $entityManager = $this->getEntityManager();
-    $query = $entityManager->createQuery('select a From CollecMeCollectionBundle:RoleAssociation a where a.appUser = :user');
-    $query->setParameter("user",$appUser);
-    $roles = $query->getResult();
-    var_dump($roles);
-    $appUser->setRoles($roles);
+    $query = $entityManager->createQuery("select a
+                                from CollecMeCollectionBundle:RoleAssociation a
+                                where a.appUser = :userId");
+    $query->setParameter('userId',$userId);
+
+
+
+    //$roles = $query->getResult();
+  //  $appUser->setRoles($roles);
     return $appUser;
   }
 
   public function loadUserByUsername($username) {
     $entityManager = $this->getEntityManager();
-    $query = $entityManager->createQuery('select u FROM CollecMeCollectionBundle:AppUser u where u.login = :username');
-    $query->setParameter("username",$username);
-    $user = $query->getResult();
+    $user = $this->findByLogin($username);
 
     if (null === $user) {
            $message = sprintf(
@@ -45,8 +50,8 @@ class SecurityRepository extends EntityRepository implements UserProviderInterfa
       );
       throw new UsernameNotFoundException($message);
     }
-
     $user = $user[0];
+    $user->setRoles(array());
     $this->addUserRoles($user);
 
     return $user;
@@ -107,15 +112,24 @@ class SecurityRepository extends EntityRepository implements UserProviderInterfa
 
     $results = $query->execute();
     $count = count($results);
-
     $map = array();
-    // aparently there are 2n results
-    // aditionnal info roles are in the 2n-1 indices
-    for($i=0;$i<$count;$i=$i+2) {
-      $user = $results[$i];
-      $roles = $results[$i+1];
-      $map[$i/2] = array("user"=>$user, "roles" => $roles);
+    $roles = array();
+    $currentUser = null;
+    foreach($results as $result) {
+      if($result instanceof AppUser ) {
+        if($currentUser != null) {
+          array_push($map,array("user"=>$currentUser, "roles"=>$roles));
+        }
+        $roles=array();
+        $currentUser = $result;
+      }
+      else if($result instanceof RoleAssociation) {
+        array_push($roles,$result->getAppRole()->getRoleName());
+      }
     }
+    array_push($map,array("user"=>$currentUser, "roles"=>$roles));
+
+
 
     return $map;
 

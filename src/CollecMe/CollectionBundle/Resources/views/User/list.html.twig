@@ -14,13 +14,13 @@
   </thead>
   <tbody>
     {% for user in users %}
-      <tr>
+  <tr>
         <td>{{ user.user.login }}</td>
         <td>{{ user.user.password}}</td>
         <td>{{ user.user.email}}</td>
         <td>
         {% for role in user.roles %}
-          <span class="label label-default">{{role.roleName}}</span>
+          <span class="label label-default">{{role}}</span>
         {% endfor %}
         </td>
         <td><a href="/user/roles/{{user.user.id}}" class="btn btn-success btn-xs">Ajouter</a></td>

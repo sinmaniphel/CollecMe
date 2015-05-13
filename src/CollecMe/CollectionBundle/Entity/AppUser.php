@@ -183,6 +183,10 @@ class AppUser implements UserInterface, \Serializable
     // Provided by the Repository
     private $roles;
 
+    public function __construct() {
+      $roles = array();
+    }
+
     // UserInterface
     public function getRoles() {
       return $this->roles;
