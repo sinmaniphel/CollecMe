@@ -1,21 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
-  <file date="2015-05-16T21:05:41Z" source-language="fr" target-language="de" datatype="plaintext" original="not.available">
+  <file date="2015-05-16T22:29:40Z" source-language="en" target-language="de" datatype="plaintext" original="not.available">
     <header>
       <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
       <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
     </header>
     <body>
-      <trans-unit id="cbf3b42ef740377e2064c3ab2512091a9d9c6d75" resname="Chercher dans le site...">
-        <jms:reference-file line="35">Resources/views/navbar.html.twig</jms:reference-file>
-        <source>Chercher dans le site...</source>
-        <target state="new">Chercher dans le site...</target>
-      </trans-unit>
-      <trans-unit id="a33c58f5ec51e3c4c33c216b1b9149b5826c3ad8" resname="Connexion">
-        <jms:reference-file line="43">Resources/views/navbar.html.twig</jms:reference-file>
-        <source>Connexion</source>
-        <target state="new">Connexion</target>
-      </trans-unit>
       <trans-unit id="6e157c5da4410b7e9de85f5c93026b9176e69064" resname="Create">
         <jms:reference-file line="79">CollectionBundle/Controller/AppUserController.php</jms:reference-file>
         <source>Create</source>
@@ -26,20 +16,30 @@
         <source>Delete</source>
         <target state="new">Delete</target>
       </trans-unit>
-      <trans-unit id="63c5b1cb96130c5c4f83a31af3097e1b0fd73a1f" resname="Ma Page">
-        <jms:reference-file line="15">Resources/views/navbar.html.twig</jms:reference-file>
-        <source>Ma Page</source>
-        <target state="new">Ma Page</target>
-      </trans-unit>
-      <trans-unit id="22d8c7befda0803cf8de236252cc4d80c707c36d" resname="Mes Collections">
-        <jms:reference-file line="20">Resources/views/navbar.html.twig</jms:reference-file>
-        <source>Mes Collections</source>
-        <target state="new">Mes Collections</target>
-      </trans-unit>
       <trans-unit id="fb91e24fa52d8d2b32937bf04d843f730319a902" resname="Update">
         <jms:reference-file line="168">CollectionBundle/Controller/AppUserController.php</jms:reference-file>
         <source>Update</source>
         <target state="new">Update</target>
+      </trans-unit>
+      <trans-unit id="1def7ee55047ba24509cd0f8104cebee11e06c51" resname="my.collections">
+        <jms:reference-file line="20">Resources/views/navbar.html.twig</jms:reference-file>
+        <source>my.collections</source>
+        <target state="new">my.collections</target>
+      </trans-unit>
+      <trans-unit id="8b4441829512a1b0a5162a6967b26973ffdea51d" resname="my.page">
+        <jms:reference-file line="15">Resources/views/navbar.html.twig</jms:reference-file>
+        <source>my.page</source>
+        <target state="new">my.page</target>
+      </trans-unit>
+      <trans-unit id="fb4d60e76ce6303489f70e95f3280ab468d4d2f0" resname="site.login">
+        <jms:reference-file line="43">Resources/views/navbar.html.twig</jms:reference-file>
+        <source>site.login</source>
+        <target state="new">site.login</target>
+      </trans-unit>
+      <trans-unit id="effbff4d7a16c7eef7f17a98aa69208337ad67b3" resname="site.search">
+        <jms:reference-file line="35">Resources/views/navbar.html.twig</jms:reference-file>
+        <source>site.search</source>
+        <target state="new">site.search</target>
       </trans-unit>
     </body>
   </file>
