@@ -1,0 +1,7 @@
+collec_me_collection:
+    resource: "@CollecMeCollectionBundle/Controller/"
+    type:     annotation
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
