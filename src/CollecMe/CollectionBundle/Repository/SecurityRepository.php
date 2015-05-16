@@ -16,7 +16,7 @@ class SecurityRepository extends EntityRepository implements UserProviderInterfa
   public function addUserRoles(UserInterface $appUser) {
     $userId = $appUser->getId();
 
-    $this->
+    dump($appUser);
 
     $entityManager = $this->getEntityManager();
     $query = $entityManager->createQuery("select a
@@ -25,9 +25,12 @@ class SecurityRepository extends EntityRepository implements UserProviderInterfa
     $query->setParameter('userId',$userId);
 
 
-
-    //$roles = $query->getResult();
-  //  $appUser->setRoles($roles);
+    $results = $query->getResult();
+    $roles = array();
+    foreach($results as $result) {
+      array_push($roles, $result->getAppRole()->getRoleName());
+    }
+    $appUser->setRoles($roles);
     return $appUser;
   }
 
