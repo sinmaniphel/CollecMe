@@ -11,6 +11,10 @@ services:
      class: Twig_Extensions_Extension_Text
      tags:
          - { name: twig.extension }
+  xlf_loader:
+    class: JMS\TranslationBundle\Translation\Loader\XliffLoader
+    tags:
+        - { name: xlf.loader }
 
 jms_translation:
     source_language: en
@@ -18,11 +22,14 @@ jms_translation:
 
     configs:
         app:
-            dirs: [%kernel.root_dir%, %kernel.root_dir%/../src]
+            dirs: [%kernel.root_dir%, %kernel.root_dir%/../src,%kernel.root_dir%/Resources/translations]
             output_dir: %kernel.root_dir%/Resources/translations
             ignored_domains: [routes]
             excluded_names: ["*TestCase.php", "*Test.php"]
             excluded_dirs: [cache, data, logs]
-            default-output-format: xlf
+            extractors: [jms_i18n_routing]
 
-#            extractors: [alias_of_the_extractor]
+jms_i18n_routing:
+    default_locale: fr
+    locales: [fr, en, de]
+    strategy: prefix_except_default
