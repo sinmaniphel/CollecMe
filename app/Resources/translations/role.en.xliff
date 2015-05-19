@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
+  <file date="2015-05-19T17:15:35Z" source-language="en" target-language="en" datatype="plaintext" original="not.available">
+    <header>
+      <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
+      <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
+    </header>
+    <body>
+      <trans-unit id="79d557eef314da383bea26ce7807a072801423fd" resname="role.addToUser.description ">
+        <jms:reference-file line="8">views/User/addrole.html.twig</jms:reference-file>
+        <source>role.addToUser.description </source>
+        <target>Please select the roles you want to add to the present user</target>
+      </trans-unit>
+      <trans-unit id="85339d23de15d15b89e0f8f770d52612d49e04d7" resname="role.addToUser.title ">
+        <jms:reference-file line="7">views/User/addrole.html.twig</jms:reference-file>
+        <source>role.addToUser.title </source>
+        <target>Add roles</target>
+      </trans-unit>
+      <trans-unit id="fdade49c6781415f3a0e783a3b15b7ca22d6160f" resname="role.description">
+        <jms:reference-file line="9">views/Role/list.html.twig</jms:reference-file>
+        <jms:reference-file line="32">views/Role/list.html.twig</jms:reference-file>
+        <source>role.description</source>
+        <target>Description</target>
+      </trans-unit>
+      <trans-unit id="b8849be02948a872b694f99d53a0c42bd5f9eacc" resname="role.description ">
+        <jms:reference-file line="14">views/User/addrole.html.twig</jms:reference-file>
+        <source>role.description </source>
+        <target>Description</target>
+      </trans-unit>
+      <trans-unit id="0d01a66ae157f61d7744fb5e60a8f1e19fee4aa1" resname="role.name">
+        <jms:reference-file line="8">views/Role/list.html.twig</jms:reference-file>
+        <jms:reference-file line="27">views/Role/list.html.twig</jms:reference-file>
+        <source>role.name</source>
+        <target>Role description</target>
+      </trans-unit>
+      <trans-unit id="9e96011a6fb6b09770f9411861fe36987b95e9fc" resname="role.name ">
+        <jms:reference-file line="13">views/User/addrole.html.twig</jms:reference-file>
+        <source>role.name </source>
+        <target>Name</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

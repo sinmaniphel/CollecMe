@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
+  <file date="2015-05-19T17:12:32Z" source-language="en" target-language="en" datatype="plaintext" original="not.available">
+    <header>
+      <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
+      <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
+    </header>
+    <body>
+      <trans-unit id="20afd5b376ab9ffb3cfe083496345d7e9d11d9f5" resname="user.email">
+        <jms:reference-file line="11">views/User/list.html.twig</jms:reference-file>
+        <source>user.email</source>
+        <target>E-mail</target>
+      </trans-unit>
+      <trans-unit id="60790d162fafecaa30fff910b5165df8e73eb63d" resname="user.form.login.legend">
+        <jms:reference-file line="9">views/Security/login.html.twig</jms:reference-file>
+        <source>user.form.login.legend</source>
+        <target>Please input your user name and password</target>
+      </trans-unit>
+      <trans-unit id="1d797b831d4559bdebe45193f8b51b570437e97d" resname="user.login">
+        <jms:reference-file line="9">views/User/list.html.twig</jms:reference-file>
+        <source>user.login</source>
+        <target>User name</target>
+      </trans-unit>
+      <trans-unit id="e4d06be519f5ddd5206349fb39cf7522dd947a3a" resname="user.password">
+        <jms:reference-file line="10">views/User/list.html.twig</jms:reference-file>
+        <source>user.password</source>
+        <target>Password</target>
+      </trans-unit>
+      <trans-unit id="e7d9cf506bd06820357d6f681e8ee8bc38af56c3" resname="user.placeholder.login">
+        <jms:reference-file line="11">views/Security/login.html.twig</jms:reference-file>
+        <source>user.placeholder.login</source>
+        <target>Username...</target>
+      </trans-unit>
+      <trans-unit id="af276fcc727b7e7430cc46dcacdec03ab315c3af" resname="user.placeholder.password">
+        <jms:reference-file line="13">views/Security/login.html.twig</jms:reference-file>
+        <source>user.placeholder.password</source>
+        <target>Password...</target>
+      </trans-unit>
+      <trans-unit id="4936a9fc202bd255efee549e1440d0c3fa2e901e" resname="user.roles">
+        <jms:reference-file line="12">views/User/list.html.twig</jms:reference-file>
+        <source>user.roles</source>
+        <target>Roles</target>
+      </trans-unit>
+      <trans-unit id="e284921e470f2333acfac07e350eafe7ce00dc1a" resname="user.roles.add">
+        <jms:reference-file line="13">views/User/list.html.twig</jms:reference-file>
+        <source>user.roles.add</source>
+        <target>Add role</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

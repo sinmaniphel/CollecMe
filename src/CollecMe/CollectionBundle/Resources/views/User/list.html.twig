@@ -1,15 +1,17 @@
 {% extends 'CollecMeCollectionBundle::colme_layout.html.twig'%}
 
+{% trans_default_domain "user" %}
+
 {% block content %}
 <table class="table table-striped table-hover">
   <thead>
     <tr>
-      <th>login</th>
-      <th>password</th>
-      <th>email</th>
-      <th>roles</th>
-      <th>Ajouter rôles</th>
-      <th>Supprimer</th>
+      <th>{% trans %}user.login{% endtrans %}</th>
+      <th>{% trans %}user.password{% endtrans %}</th>
+      <th>{% trans %}user.email{% endtrans %}</th>
+      <th>{% trans %}user.roles{% endtrans %}</th>
+      <th>{% trans %}user.roles.add{% endtrans %}</th>
+      <th>{% trans from "action" %}action.delete{% endtrans %}</th>
     </tr>
   </thead>
   <tbody>
@@ -23,8 +25,8 @@
           <span class="label label-default">{{role}}</span>
         {% endfor %}
         </td>
-        <td><a href="/user/roles/{{user.user.id}}" class="btn btn-success btn-xs">Ajouter</a></td>
-        <td><a href="/user/delete/{{user.user.id}}" class="btn btn-danger btn-xs">Supprimer</a></td>
+        <td><a href="/user/roles/{{user.user.id}}" class="btn btn-success btn-xs">{% trans from "action" %}action.add{% endtrans %}</a></td>
+        <td><a href="/user/delete/{{user.user.id}}" class="btn btn-danger btn-xs">{% trans from "action" %}action.delete{% endtrans %}</a></td>
       </tr>
     {% endfor %}
 </table>
