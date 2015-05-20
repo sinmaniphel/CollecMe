@@ -76,12 +76,67 @@ You are going to actually download a set of files on your computer, strictly ide
 So first, we are going to create the folder where we will download these source files
 ```
 $ cd ~
-$ mkdir -p dev/PHP/projects/CollecMe
+$ mkdir -p dev/PHP/projects/
 ```
 The first instruction brings you back to your home folder, the second creates the folder, the -p option creating successively all children
 
 Now go to the folder you have created
 
 ```
-$ cd dev/PHP/projects/CollecMe
+$ cd dev/PHP/projects/
 ```
+
+### Getting the source
+Now, we are going to actually clone the GitHub repository
+```
+$ git clone git@github.com:sinmaniphel/CollecMe.git
+```
+
+Lo ! You have the source code on your computer
+
+Now go in the correct folder
+```
+$ cd CollecMe
+```
+
+### Working with branches
+Working on a branch, that is, on a subcopy of the repository, is common practice with GIT.
+
+To start working on a branch, you must create it, and then swith to it using a checkout
+
+This is quite easly done with the following command :
+```
+$ git checkout -b branch_name
+```
+
+A good practice that I will enforce on this project is creating a branch with a pull request in mind.
+A good naming convention would be, for example *pr-security-ACL-rolelist*
+
+The main branch is the "master", and you can switch branches with git checkout, without the -b option
+
+### Pushing and pulling
+Right now you should have understood that a branch is a working set on a repository which is a clone from a remote one.
+
+Pushing and pulling consists in synchronizing your working set with remote ones.
+
+Pulling fetches the code from a branch the remote and updates your code (conflicts may happen).
+
+```
+$ git pull remote branch
+```
+
+If you want to "provide" your branch to the remote, you push it
+
+```
+$ git push remote yourbranch
+```
+
+### Adding a new file
+you can either use the "git add" command or do it via git cola
+
+### Staging and commit
+In a first time, it will be easier for you to use git cola
+- Select the files you want to commit and stage them with a right click
+- Check the resulting diff
+- Enter a commit message (mandatory)
+- Hit commit
