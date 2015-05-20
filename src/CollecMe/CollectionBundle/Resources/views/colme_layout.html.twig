@@ -51,8 +51,13 @@
 								{% endif %}
 							{% endif %}
 							<div class="row">
-                {% block content %}{% endblock %}
-            	</div>
+								<div class="col-lg-3">
+									{% include 'CollecMeCollectionBundle::sidebar.html.twig'%}
+								</div>
+								<div class="col-lg-9">
+                	{% block content %}{% endblock %}
+								</div>
+							</div>
 						</div>
 
 </section>
