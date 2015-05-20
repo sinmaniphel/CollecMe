@@ -93,6 +93,7 @@ $ git clone git@github.com:sinmaniphel/CollecMe.git
 ```
 
 Lo ! You have the source code on your computer
+The clone command creates a copy of the original repository, with all the change history. It's actually not as heavy as you would imagine. 
 
 Now go in the correct folder
 ```
@@ -140,3 +141,42 @@ In a first time, it will be easier for you to use git cola
 - Check the resulting diff
 - Enter a commit message (mandatory)
 - Hit commit
+
+### Useful git commands and tips
+#### git branch
+```
+$ git branch
+```
+This command will list all the branches you have available and highlite the one you are currently on
+
+#### hoping to another branch
+```
+$ git checkout branch_name
+```
+You may be working on several issues at the same time. Switching from branch to branch allows you to separate your work, and you will always have your files and folders as they were at the time of your last commit. 
+
+Also, as said above, to each branch it's pull request, it allows to correctly identify which code resolved which issue.
+
+#### Updating from the master (or another branch) before a push
+The master, that is, the main reference source code (which is, actually a branch created initially by convention), may change during the time you are working on your part.
+
+To be sure that your code is up to date with the master, simply pull the master while you are on your branch
+```
+$ git checkout your_branch
+$ git pull origin master
+```
+You may be asked to input a message. The default editor for Ubuntu is nano, which is not that easy to handle.
+Simply imput something like "update from master", Ctrl+O to write it, and another combination to quit (Ctrl-X if my memory serves well)
+
+#### Merging and conflicts
+When you pull the master to update your code, what actually happens is that all the diffs that are easy to compute are applied, and then the code is commited.
+
+That operation is called "merging".
+
+Some operations are not easy to compute, for example when someone updated a part of the code you were working on. 
+In those situations, your favorite tool (git cola, or a git package for atom) will provide you help in putting things together, showing conflicting files and even proposing solutions.
+
+A good way to list all the conflicts is to use
+```
+$ git status
+```
