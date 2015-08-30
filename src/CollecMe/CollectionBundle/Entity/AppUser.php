@@ -3,12 +3,12 @@
 namespace CollecMe\CollectionBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use FOS\UserBundle\Entity\User as BaseUser;
+use FOS\UserBundle\Model\User as BaseUser;
 
 /**
  * AppUser
  *
- * @ORM\Table()
+ * @ORM\Table(name="fos_user")
  * @ORM\Entity()
  */
 class AppUser extends BaseUser
