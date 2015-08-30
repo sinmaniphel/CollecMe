@@ -1,0 +1,24 @@
+{% extends 'CollecMeCollectionBundle::colme_layout.html.twig'%}
+
+{% trans_default_domain "user" %}
+
+{% block fos_user_content %}
+  <div class="col-lg-3" ></div>
+  <div class="col-lg-6" >
+    <form class="form-horizontal" action="{{ path('fos_user_security_check') }}" method="post">
+      <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+      <h2 class="form-signin-heading">{% trans %}user.form.login.legend{% endtrans %}</h2>
+      <label for="username" class="sr-only">login</label>
+      <input class="form-control" id="username" placeholder="{% trans %}user.placeholder.login{% endtrans %}" type="text" name="_username">
+        <label for="password" class="sr-only">Password</label>
+      <input type="password" id="password" class="form-control" placeholder="{% trans %}user.placeholder.password{% endtrans %}"  name="_password" required>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="remember-me" id="remember_me" name="_remember_me">{% trans from "action"%}action.rememberme{% endtrans %}
+        </label>
+      </div>
+      <button class="btn btn-primary btn-block" type="submit"  id="_submit" name="_submit">{% trans from "action"%}action.signin{% endtrans %}</button>
+    </form>
+  </div>
+  <div class="col-lg-3" ></div>
+{% endblock %}
