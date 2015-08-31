@@ -64,6 +64,11 @@ doctrine:
         auto_generate_proxy_classes: "%kernel.debug%"
         auto_mapping: true
 
+fos_user:
+    db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
+    firewall_name: main
+    user_class: CollecMe\CollectionBundle\Entity\AppUser
+
 # Swiftmailer Configuration
 # swiftmailer:
 #     transport: "%mailer_transport%"

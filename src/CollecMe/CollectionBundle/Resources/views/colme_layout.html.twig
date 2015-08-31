@@ -1,4 +1,5 @@
 {% trans_default_domain "collecme" %}
+
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
@@ -55,7 +56,9 @@
 									{% include 'CollecMeCollectionBundle::sidebar.html.twig'%}
 								</div>
 								<div class="col-lg-9">
-                	{% block content %}{% endblock %}
+                                                                  {% block content %}
+                                                                  {% block fos_user_content %}{% endblock %}
+                                                                  {% endblock %}
 								</div>
 							</div>
 						</div>

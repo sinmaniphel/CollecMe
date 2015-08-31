@@ -62,7 +62,6 @@ class Collectible
     public function setColName($colName)
     {
         $this->colName = $colName;
-
         return $this;
     }
 
