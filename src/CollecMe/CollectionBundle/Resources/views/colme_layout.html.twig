@@ -51,10 +51,13 @@
 									</div>
 								{% endif %}
 							{% endif %}
-							<div class="row">
+							        <div class="row">
+                                                                 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+
 								<div class="col-lg-3">
 									{% include 'CollecMeCollectionBundle::sidebar.html.twig'%}
 								</div>
+                                                                {% endif %}
 								<div class="col-lg-9">
                                                                   {% block content %}
                                                                   {% block fos_user_content %}{% endblock %}
