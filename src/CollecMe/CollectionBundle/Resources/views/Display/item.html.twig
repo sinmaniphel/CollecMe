@@ -1,95 +1,14 @@
 {% extends 'CollecMeCollectionBundle::colme_layout.html.twig'%}
 
-{% block script %}
+{% block style %}
 {{parent()}}
-{% javascripts
-'@CollecMeCollectionBundle/Resources/public/js/masonry-3.3.0.js'
-'@CollecMeCollectionBundle/Resources/public/js/cm-itemlist-functions.js'
-
-%}
-<script type="text/javascript" src="{{ asset_url }}"></script>
-
-{% endjavascripts %}
-
 {% endblock %}
 
 {% block fos_user_content %}
-<div class="item-grid">
-  <div class="col-md-4 cm-it-li">
-    <div class="thumbnail">
-      <img src="{{ 'img/sample1.jpg' | imagine_filter('list_thumb') }}" alt="Marche po">
-      <div class="caption collapse">
-        <h5>Thumbnail label</h5>
-        <p><small>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor.</small></p>
-      </div>
-    </div>
-  </div>
-
-  <div class="col-md-4 cm-it-li">
-    <div class="thumbnail">
-      <img src="{{ 'img/sample2.jpg' | imagine_filter('list_thumb') }}" alt="Marche po">
-      <div class="caption collapse">
-        <h5>Thumbnail label</h5>
-        <p><small>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor. Praesent et diam eget libero egestas mattis sit amet vitae augue. Nam tincidunt congue enim, ut porta lorem lacinia consectetur. Donec ut libero sed arcu vehicula ultricies a non tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit</small></p>
-       </div>
-    </div>
-  </div>
-
-  <div class="col-md-4 cm-it-li">
-    <div class="thumbnail">
-      <img src="{{ 'img/sample3.jpg' | imagine_filter('list_thumb') }}" alt="Marche po">
-      <div class="caption collapse">
-        <h5>Thumbnail label</h5>
-        <p><small>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor. Praesent et diam eget libero egestas mattis sit amet vitae augue. Nam tincidunt congue enim, ut porta lorem lacinia consectetur. Donec ut libero sed arcu vehicula ultricies a non tortor. </small></p>
-       </div>
-    </div>
-  </div>
-  <div class="col-md-4 cm-it-li" >
-    <div class="thumbnail">
-      <img src="{{ 'img/sample4.jpg' | imagine_filter('list_thumb') }}" alt="Marche po">
-      <div class="caption collapse">
-        <h5>Thumbnail label</h5>
-        <p><small>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor. Praesent et diam eget libero egestas mattis sit amet vitae augue. Nam tincidunt congue enim, ut porta lorem lacinia consectetur. Donec ut libero sed arcu vehicula ultricies a non tortor.t amet, consectetur adipiscing eli</small></p>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-4 cm-it-li" >
-    <div class="thumbnail">
-      <img src="{{ 'img/sample5.jpg' | imagine_filter('list_thumb') }}" alt="Marche po">
-      <div class="caption collapse">
-        <h5>Thumbnail label</h5>
-        <p><small>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor. Praesent et diam eget libero egestas mattis sit amet vitae augue. Nam tincidunt congue enim, ut porta lorem lacinia consectetur. Donec ut libero sed arcu vehicula ultricies a non tortor. <small>Lorem ipsum dolor sit amet, consectetur adipiscing elit</small></p>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-4 cm-it-li" >
-    <div class="thumbnail">
-      <img src="{{ 'img/sample6.jpg' | imagine_filter('list_thumb') }}" alt="Marche po">
-      <div class="caption collapse">
-        <h5>Thumbnail label</h5>
-        <p><small>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor. Praesent et diam eget libero egestas mattis sit amet vitae augue. Nam tincidunt congue enim, ut porta lorem lacinia consectetur. Donec ut libero sed arcu vehicula ultricies a non tortor. , cnsetetur adipiscing elit</small></p>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-4 cm-it-li" >
-    <div class="thumbnail">
-      <img src="{{ 'img/sample7.jpg' | imagine_filter('list_thumb') }}" alt="Marche po">
-      <div class="caption collapse">
-        <h5>Thumbnail label</h5>
-        <p><small>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor. Praesent et diam eget libero egestas mattis sit amet vitae augue. Nam tincidunt congue enim, ut porta lorem lacinia consectetur. Donec ut libero sed arcu vehicula ultricies a non tortor. <small>Lorem ipsum dolor sit amet, consectetur adipiscing elit</small></p>
-      </div>
-    </div>
-  </div><div class="col-md-4 cm-it-li" >
-    <div class="thumbnail">
-      <img src="{{ 'img/sample8.jpg' | imagine_filter('list_thumb') }}" alt="Marche po">
-      <div class="caption collapse">
-        <h5>Thumbnail label</h5>
-        <p><small>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor. Praesent et diam eget libero egestas mattis sit amet vitae augue. Nam tincidunt congue enim, ut porta lorem lacinia consectetur. Donec ut libero sed arcu vehicula ultricies a non tortor. psum dolor sit amet, consectetur adipiscing elit</small></p>
-      </div>
-    </div>
+<div class="page-header">
+  <h1>Random item number # </h1>
+  <div class="jumbotron">
+    <img src="/img/sample1.jpg" alt="alternate text"/>
   </div>
 </div>
-<script type="text/javascript">
-
-</script>
 {% endblock %}
