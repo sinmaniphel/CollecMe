@@ -63,12 +63,29 @@ doctrine:
     orm:
         auto_generate_proxy_classes: "%kernel.debug%"
         auto_mapping: true
-
+# Friends of symfony UserBundle
 fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
     firewall_name: main
     user_class: CollecMe\CollectionBundle\Entity\AppUser
 
+# Imagine image bundle
+liip_imagine:
+    resolvers:
+       default:
+          web_path: ~
+
+    filter_sets:
+        cache: ~
+        list_thumb:
+            quality: 75
+            filters:
+                thumbnail: { size: [360, 600], mode: inset }
+        it_md_thumb:
+          quality: 60
+          filters:
+            thumbnail: { size: [640,480], mode:inset }
+    
 # Swiftmailer Configuration
 # swiftmailer:
 #     transport: "%mailer_transport%"

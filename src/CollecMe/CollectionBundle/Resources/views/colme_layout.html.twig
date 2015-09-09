@@ -2,73 +2,75 @@
 
 <!DOCTYPE html>
 <html lang="en-US">
-<head>
-	<meta charset="UTF-8">
-	<title>{% block title %}CollecMe{% endblock %}</title>
-	{% block style %}
-	   {% stylesheets '@CollecMeCollectionBundle/Resources/public/bootstrap-3.3.4-dist/css/bootstrap.css'
+  <head>
+    <meta charset="UTF-8">
+    <title>{% block title %}CollecMe{% endblock %}</title>
+    {% block style %}
+    {% stylesheets
+    '@CollecMeCollectionBundle/Resources/public/css/custom/bootstrap.min.css'
+    '@CollecMeCollectionBundle/Resources/public/css/custom/collecme.css'
 
-	   %}
-	   <link rel="stylesheet" href="{{ asset_url }}" />
+    %}
+    <link rel="stylesheet" href="{{ asset_url }}" />
 
-	   {% endstylesheets %}
-  {% endblock %}
-	{% block script %}
-	    {% javascripts
-											'@CollecMeCollectionBundle/Resources/public/js/jquery-2.1.4.min.js'
-	                    '@CollecMeCollectionBundle/Resources/public/bootstrap-3.3.4-dist//js/bootstrap.js'
-
-
-	    %}
-	    <script type="text/javascript" src="{{ asset_url }}"></script>
-
-	    {% endjavascripts %}
-	{% endblock %}
-
-</head>
-<body>
-{% block body %}
-{% include 'CollecMeCollectionBundle::navbar.html.twig'%}
-<section>
-            <div class="container-fluid">
-						{% for flashMessage in app.session.flashbag.get('pop') %}
-						<div class="row">
-							<div class="alert alert-dismissible alert-success">
-								<button type="button" class="close" data-dismiss="alert">×</button>
-							{{ flashMessage }}
-							</div>
-						</div>
-					{% endfor %}
-
-							{% if error is defined %}
-								{% if error %}
-									{{ dump(error)}}
-									<div class="row">
-										<div class="alert alert-dismissible alert-danger">
-  										<button type="button" class="close" data-dismiss="alert">×</button>
-  									{{ error.messageKey|trans(error.messageData) }}
-										</div>
-									</div>
-								{% endif %}
-							{% endif %}
-							        <div class="row">
-                                                                 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-
-								<div class="col-lg-3">
-									{% include 'CollecMeCollectionBundle::sidebar.html.twig'%}
-								</div>
-                                                                {% endif %}
-								<div class="col-lg-9">
-                                                                  {% block content %}
-                                                                  {% block fos_user_content %}{% endblock %}
-                                                                  {% endblock %}
-								</div>
-							</div>
-						</div>
-
-</section>
-{% endblock %}
+    {% endstylesheets %}
+    {% endblock %}
+    {% block script %}
+    {% javascripts
+    '@CollecMeCollectionBundle/Resources/public/js/jquery-2.1.4.min.js'
+    '@CollecMeCollectionBundle/Resources/public/bootstrap-3.3.4-dist//js/bootstrap.js'
 
 
-</body>
+    %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+
+    {% endjavascripts %}
+    {% endblock %}
+
+  </head>
+  <body>
+    {% block body %}
+    {% include 'CollecMeCollectionBundle::navbar.html.twig'%}
+    <section>
+      <div class="container-fluid">
+        {% for flashMessage in app.session.flashbag.get('pop') %}
+        <div class="row">
+          <div class="alert alert-dismissible alert-success">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            {{ flashMessage }}
+          </div>
+        </div>
+        {% endfor %}
+
+        {% if error is defined %}
+        {% if error %}
+        {{ dump(error)}}
+        <div class="row">
+          <div class="alert alert-dismissible alert-danger">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            {{ error.messageKey|trans(error.messageData) }}
+          </div>
+        </div>
+        {% endif %}
+        {% endif %}
+        <div class="row">
+          {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+
+          <div class="col-lg-2 col-md-2">
+            {% include 'CollecMeCollectionBundle::sidebar.html.twig'%}
+          </div>
+          {% endif %}
+          <div class="col-lg-10 col-md-10">
+            {% block content %}
+            {% block fos_user_content %}{% endblock %}
+            {% endblock %}
+          </div>
+        </div>
+      </div>
+
+    </section>
+    {% endblock %}
+
+
+  </body>
 </html>

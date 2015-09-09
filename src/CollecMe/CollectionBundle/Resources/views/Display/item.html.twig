@@ -1,3 +1,57 @@
 {% extends 'CollecMeCollectionBundle::colme_layout.html.twig'%}
+{% trans_default_domain "item" %}
 
-{% block content %}ITEM{% endblock %}
+
+{% block style %}
+{{parent()}}
+{% endblock %}
+
+{% block fos_user_content %}
+<div class="page-header">
+  <h1>Random item number # </h1>
+</div>
+
+<div class="row cm-it-main">
+  <div class="cm-it-main-pic col-md-6 col-lg-6 thumbnail">
+    <img
+       src="{{'/img/sample1.jpg' | imagine_filter('it_md_thumb')}}"
+       alt="alternate text"/>
+  </div>
+  <div class="col-md-6 col-lg-6 cm-it-main-content">
+    <!-- Navigation tab -->
+    <ul class="nav nav-tabs">
+      <li role="presentation" class="active">
+        <a href="#summary"
+           aria-controls="summary"
+           role="tab"
+           data-toggle="tab"
+           >
+          {% trans %}main.summary{% endtrans %}
+        </a>
+      </li>
+      <li role="presentation" >
+        <a href="#caracteristics"
+           aria-controls="caracteristics"
+           role="tab"
+           data-toggle="tab"
+           >
+          {% trans %}main.caracteristics{% endtrans %}
+        </a>
+      </li>
+    </ul>
+
+    <!-- And now for the content -->
+    <div class="tab-content">
+      <div role="tabpanel" class="tab-pane active" id="summary">
+You can activate a tab or pill navigation without writing any JavaScript by simply specifying data-toggle="tab" or data-toggle="pill" on an element. Adding the nav and nav-tabs classes to the tab ul will apply the Bootstrap tab styling, while adding the nav and nav-pills classes will apply pill styling.
+      </div>
+      <div role="tabpanel" class="tab-pane" id="caracteristics">
+        Size : 7/8<br/>
+        Origin : Japan<br/>
+        Brand : Aeroshell<br/>
+        Maker : Aeroshell<br/>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
