@@ -6,7 +6,9 @@
     <meta charset="UTF-8">
     <title>{% block title %}CollecMe{% endblock %}</title>
     {% block style %}
-    {% stylesheets '@CollecMeCollectionBundle/Resources/public/css/custom/bootstrap.min.css'
+    {% stylesheets
+    '@CollecMeCollectionBundle/Resources/public/css/custom/bootstrap.min.css'
+    '@CollecMeCollectionBundle/Resources/public/css/custom/collecme.css'
 
     %}
     <link rel="stylesheet" href="{{ asset_url }}" />
@@ -54,11 +56,11 @@
         <div class="row">
           {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
 
-          <div class="col-lg-3">
+          <div class="col-lg-2 col-md-2">
             {% include 'CollecMeCollectionBundle::sidebar.html.twig'%}
           </div>
           {% endif %}
-          <div class="col-lg-9">
+          <div class="col-lg-10 col-md-10">
             {% block content %}
             {% block fos_user_content %}{% endblock %}
             {% endblock %}

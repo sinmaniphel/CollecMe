@@ -81,6 +81,10 @@ liip_imagine:
             quality: 75
             filters:
                 thumbnail: { size: [360, 600], mode: inset }
+        it_md_thumb:
+          quality: 60
+          filters:
+            thumbnail: { size: [640,480], mode:inset }
     
 # Swiftmailer Configuration
 # swiftmailer:
