@@ -6,6 +6,8 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use CollecMe\CollectionBundle\Entity\AppUser;
+use CollecMe\CollectionBundle\Entity\Collectible;
+use CollecMe\CollectionBundle\Entity\ItemCaracteristics;
 
 /**
  * AppUser controller.
@@ -29,6 +31,29 @@ class ItemController extends Controller
      */
     function displayItem() {
         return $this->render('CollecMeCollectionBundle:Display:item.html.twig');
+    }
+
+    /**
+     *
+     *@Route("/edit")
+     */
+    function editItem() {
+        return $this->render('CollecMeCollectionBundle:Display:item.html.twig');
+    }
+
+    /**
+     *
+     *@Route("/new")
+     */
+    function newItem() {
+
+        $item = new Collectible();
+
+        $formType = $this->get('colme.form.type.collectible');
+
+        $form = $this->createForm($formType,$item);
+        
+        return $this->render('CollecMeCollectionBundle:Display:item.html.twig',array('form' => $form->createView(),));
     }
 
     

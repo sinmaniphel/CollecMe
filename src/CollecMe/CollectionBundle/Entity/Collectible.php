@@ -120,4 +120,38 @@ class Collectible
     {
         return $this->colIsCirca;
     }
+
+
+    /**
+     * @var text 
+     * @ORM\Column(name="col_description", type="text")
+     */
+    private $colDescription;
+
+    
+
+    
+
+    /**
+     * Set colDescription
+     *
+     * @param string $colDescription
+     * @return Collectible
+     */
+    public function setColDescription($colDescription)
+    {
+        $this->colDescription = $colDescription;
+
+        return $this;
+    }
+
+    /**
+     * Get colDescription
+     *
+     * @return string 
+     */
+    public function getColDescription()
+    {
+        return $this->colDescription;
+    }
 }

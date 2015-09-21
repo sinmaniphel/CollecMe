@@ -1,13 +1,32 @@
 {% extends 'CollecMeCollectionBundle::colme_layout.html.twig'%}
 {% trans_default_domain "item" %}
 
+{% block script %}
+{{parent()}}
+{% javascripts
+'@CollecMeCollectionBundle/Resources/public/js/masonry-3.3.0.js'
+'@CollecMeCollectionBundle/Resources/public/js/cm-itemedit-functions.js'
+
+%}
+<script type="text/javascript" src="{{ asset_url }}"></script>
+
+{% endjavascripts %}
+{% endblock %}
 
 {% block style %}
 {{parent()}}
 {% endblock %}
 
 {% block fos_user_content %}
-<div class="page-header">
+
+{{ form_start(form) }}
+    {{ form_errors(form) }}
+    {{ form_row(form.colName) }}
+    {{ form_row(form.colDescription) }}
+
+
+<div class="page-header" >
+  <div contenteditable="true"
   <h1>Random item number # </h1>
 </div>
 
@@ -19,6 +38,7 @@
   </div>
   <div class="col-md-6 col-lg-6 cm-it-main-content">
     <!-- Navigation tab -->
+
     <ul class="nav nav-tabs">
       <li role="presentation" class="active">
         <a href="#summary"
@@ -54,4 +74,5 @@ You can activate a tab or pill navigation without writing any JavaScript by simp
     </div>
   </div>
 </div>
+{{ form_end(form) }}
 {% endblock %}

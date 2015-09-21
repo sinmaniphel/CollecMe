@@ -16,6 +16,11 @@ services:
     tags:
         - { name: xlf.loader }
 
+  colme.form.type.collectible:
+    class: CollecMe\CollectionBundle\Form\Type\CollectibleType
+    tags:
+        - { name: colmeColType, alias: colmeColType }
+        
 jms_translation:
     source_language: en
     locales: [fr,en,de]
