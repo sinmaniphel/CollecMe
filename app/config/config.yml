@@ -38,11 +38,21 @@ assetic:
     #java: /usr/bin/java
     filters:
         cssrewrite: ~
+        less:
+          node: /usr/bin/node
+          node_paths: [/usr/local/lib/node_modules]
+          applys_to: "\.less$"
         #closure:
         #    jar: "%kernel.root_dir%/Resources/java/compiler.jar"
         #yui_css:
         #    jar: "%kernel.root_dir%/Resources/java/yuicompressor-2.4.7.jar"
 
+braincrafted_bootstrap:
+  less_filter: less
+  jquery_path: %kernel.root_dir%/../web/bower/jquery/dist/jquery.js
+  customize:
+    variables_file: %kernel.root_dir%/Resources/less/collecme.less 
+        
 # Doctrine Configuration
 doctrine:
     dbal:

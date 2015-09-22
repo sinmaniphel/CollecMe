@@ -1,0 +1,17 @@
+{
+  "name": "CollecMe",
+  "version": "0.0.0",
+  "homepage": "https://github.com/sinmaniphel/CollecMe",
+  "authors": [
+    "aggelos <sinmaniphel@free.fr>"
+  ],
+  "moduleType": [
+    "amd"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "~3.3.5",
+    "imagesloaded": "~3.1.8",
+    "masonry": "~3.3.2"
+  }
+}

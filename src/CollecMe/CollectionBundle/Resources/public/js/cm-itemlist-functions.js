@@ -6,7 +6,7 @@ var masonryProps =       {
 };
 
 
-function onOverThumbnail(eventObject) {
+function onClickThumbnail(eventObject) {
 
     var listItems = $('.cm-it-li').find('.collapse');
     listItems.each(function() {
@@ -18,20 +18,23 @@ function onOverThumbnail(eventObject) {
 
 
 function initGridView() {
+    
     var listItems = $('.cm-it-li');
     var img = listItems.children('div').children('img');
-    img.on('click',onOverThumbnail);
+    img.on('click',onClickThumbnail);
 
     var grid = $('.item-grid');
     var collapsibles = $('.cm-it-li').find('.collapse');
 
-    var layoutGrid = function() {
+    var layoutGridInner = function() {
         grid.masonry(masonryProps);
     };
 
     collapsibles.each(function() {
-        setCollapsibleEvents($(this),layoutGrid);
+        setCollapsibleEvents($(this),layoutGridInner);
     });
+
+    grid.imagesLoaded(layoutGridInner);
 
 
 }
