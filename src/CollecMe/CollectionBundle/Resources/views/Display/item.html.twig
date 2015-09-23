@@ -1,14 +1,12 @@
 {% extends 'CollecMeCollectionBundle::colme_layout.html.twig'%}
 {% trans_default_domain "item" %}
 
-
-{% block style %}
-{{parent()}}
-{% endblock %}
-
 {% block fos_user_content %}
-<div class="page-header">
-  <h1>Random item number # </h1>
+
+<div class="page-header" >
+  <div contenteditable="true">
+    <h1>Random item number # </h1>
+  </div>
 </div>
 
 <div class="row cm-it-main">
@@ -19,6 +17,7 @@
   </div>
   <div class="col-md-6 col-lg-6 cm-it-main-content">
     <!-- Navigation tab -->
+
     <ul class="nav nav-tabs">
       <li role="presentation" class="active">
         <a href="#summary"
@@ -54,4 +53,5 @@ You can activate a tab or pill navigation without writing any JavaScript by simp
     </div>
   </div>
 </div>
+
 {% endblock %}

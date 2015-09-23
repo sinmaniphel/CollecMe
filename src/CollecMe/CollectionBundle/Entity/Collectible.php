@@ -2,6 +2,7 @@
 
 namespace CollecMe\CollectionBundle\Entity;
 
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -18,12 +19,13 @@ class Collectible
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
+     * 
      */
     private $id;
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank();
      * @ORM\Column(name="col_name", type="string", length=255)
      */
     private $colName;
@@ -32,6 +34,7 @@ class Collectible
      * @var \DateTime
      *
      * @ORM\Column(name="col_date", type="date")
+     * @Assert\Type("\DateTime")
      */
     private $colDate;
 
@@ -119,5 +122,40 @@ class Collectible
     public function getColIsCirca()
     {
         return $this->colIsCirca;
+    }
+
+
+    /**
+     * @var text 
+     * @ORM\Column(name="col_description", type="text")
+     * @Assert\NotBlank();
+     */
+    private $colDescription;
+
+    
+
+    
+
+    /**
+     * Set colDescription
+     *
+     * @param string $colDescription
+     * @return Collectible
+     */
+    public function setColDescription($colDescription)
+    {
+        $this->colDescription = $colDescription;
+
+        return $this;
+    }
+
+    /**
+     * Get colDescription
+     *
+     * @return string 
+     */
+    public function getColDescription()
+    {
+        return $this->colDescription;
     }
 }
