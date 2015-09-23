@@ -19,7 +19,7 @@ class ItemController extends Controller
 
     /**
      *
-     * @Route("/list")
+     * @Route("/list", name="route_item_list")
      */
     function displaySampleList() {
        return $this->render('CollecMeCollectionBundle:Display:item-grid.html.twig');
@@ -45,7 +45,7 @@ class ItemController extends Controller
      *
      *@Route("/new")
      */
-    function newItem() {
+    function newItem(Request $request) {
 
         $item = new Collectible();
 
@@ -53,7 +53,16 @@ class ItemController extends Controller
 
         $form = $this->createForm($formType,$item);
         
-        return $this->render('CollecMeCollectionBundle:Display:item.html.twig',array('form' => $form->createView(),));
+        $form->handleRequest($request);
+
+        if($form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($item);
+            $em->flush();
+            return $this->redirectToRoute('route_item_list');
+        }
+        
+        return $this->render('CollecMeCollectionBundle:Collectible:new-collectible.html.twig',array('form' => $form->createView(),));
     }
 
     

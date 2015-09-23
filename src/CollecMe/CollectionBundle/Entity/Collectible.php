@@ -2,6 +2,7 @@
 
 namespace CollecMe\CollectionBundle\Entity;
 
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -18,12 +19,13 @@ class Collectible
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
+     * 
      */
     private $id;
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank();
      * @ORM\Column(name="col_name", type="string", length=255)
      */
     private $colName;
@@ -32,6 +34,7 @@ class Collectible
      * @var \DateTime
      *
      * @ORM\Column(name="col_date", type="date")
+     * @Assert\Type("\DateTime")
      */
     private $colDate;
 
@@ -125,6 +128,7 @@ class Collectible
     /**
      * @var text 
      * @ORM\Column(name="col_description", type="text")
+     * @Assert\NotBlank();
      */
     private $colDescription;
 

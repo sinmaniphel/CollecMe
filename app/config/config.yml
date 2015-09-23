@@ -52,7 +52,13 @@ braincrafted_bootstrap:
   jquery_path: %kernel.root_dir%/../web/bower/jquery/dist/jquery.js
   customize:
     variables_file: %kernel.root_dir%/Resources/less/collecme.less 
-        
+
+
+# Ivory Ck Adapter, providing CKEditor support
+ivory_ck_editor:
+    inline: true
+    input_sync: true
+    
 # Doctrine Configuration
 doctrine:
     dbal:

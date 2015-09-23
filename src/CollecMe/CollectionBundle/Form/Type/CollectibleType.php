@@ -15,8 +15,8 @@ class CollectibleType extends AbstractType {
         $builder
             ->add('colIsCirca')
             ->add('colDate')
-            ->add('colName', 'text')
-            ->add('colDescription', 'text')
+            ->add('colName', 'ckeditor')
+            ->add('colDescription', 'ckeditor')
             ->add('save','submit')
             
             ;

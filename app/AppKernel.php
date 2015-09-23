@@ -23,6 +23,7 @@ class AppKernel extends Kernel
             new FOS\UserBundle\FOSUserBundle(),
             new Liip\ImagineBundle\LiipImagineBundle(),
             new Braincrafted\Bundle\BootstrapBundle\BraincraftedBootstrapBundle(),
+            new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
             new CollecMe\CollectionBundle\CollecMeCollectionBundle()
         );
 
