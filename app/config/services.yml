@@ -21,20 +21,10 @@ services:
     tags:
         - { name: colmeColType, alias: colmeColType }
         
-jms_translation:
-    source_language: en
-    locales: [fr,en,de]
+  colme.menu.left:
+    class: CollecMe\CollectionBundle\Menu\NavMenuBuilder
+    arguments: ["@knp_menu.factory"]
+    tags:
+        - { name: colmeMenuLeft, method: createNavMenu , alias: colmeMenuLeft }
+  
 
-    configs:
-        app:
-            dirs: [%kernel.root_dir%, %kernel.root_dir%/../src,%kernel.root_dir%/Resources/translations]
-            output_dir: %kernel.root_dir%/Resources/translations
-            ignored_domains: [routes]
-            excluded_names: ["*TestCase.php", "*Test.php"]
-            excluded_dirs: [cache, data, logs]
-            extractors: [jms_i18n_routing]
-
-jms_i18n_routing:
-    default_locale: fr
-    locales: [fr, en, de]
-    strategy: prefix_except_default
