@@ -8,8 +8,7 @@ use Symfony\Component\HttpFoundation\RequestStack;
 
 class NavMenuBuilder extends ContainerAware
 {
-
-   private $factory;
+    private $factory;
 
     /**
      * @param FactoryInterface $factory
@@ -21,23 +20,27 @@ class NavMenuBuilder extends ContainerAware
         $this->factory = $factory;
     }
 
+
+    
     public function createNavMenu(array $options)
     {
         $menu = $this->factory->createItem('root');
 
-        $menu->addChild("my.page")
+        $menu->addChild("my.page",array('route' => 'homepage'))
             ->setExtra('translation_domain','my');
 
-        $menu->addChild("News");
-        
-        $colMenu = $menu->addChild("my.collections");
-        $colMenu->setExtra('translation_domain','my');
-        
-        foreach($options['user.collections'] as $collection) {
-            $colMenu->addChild($collection->name);
-        }
+        $menu->addChild("News",array('route' => 'route_item_list'));
 
-        return menu;        
-        
+        $menu->addChild("my.collections",
+                        array('route' => 'route_item_list'))
+             ->setExtra('translation_domain','my');
+        if(isset($options['user.collections'])) {
+            foreach($options['user.collections'] as $collection) {
+                $menu['my.collections']->addChild($collection->name,array('route' => 'homepage'));
+            }
+        }
+        dump($menu);
+        return $menu;
+
     }
 }

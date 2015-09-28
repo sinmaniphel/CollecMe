@@ -15,8 +15,11 @@
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-{{ knp_menu_render("colmeMenuLeft", { 'style': 'navbar' }) }}
+      {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+      {{ knp_menu_render(
+      "colmeMenuLeft",
+      { 'style': 'navbar' })
+      }}
       <form class="navbar-form navbar-right" role="search">
         <div class="input-group">
           <div class="form-group">

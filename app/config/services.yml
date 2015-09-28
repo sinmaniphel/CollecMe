@@ -20,11 +20,10 @@ services:
     class: CollecMe\CollectionBundle\Form\Type\CollectibleType
     tags:
         - { name: colmeColType, alias: colmeColType }
-        
+
+  #Should theorically work. In practice as of 2.0.0 doesn't
   colme.menu.left:
     class: CollecMe\CollectionBundle\Menu\NavMenuBuilder
     arguments: ["@knp_menu.factory"]
     tags:
-        - { name: colmeMenuLeft, method: createNavMenu , alias: colmeMenuLeft }
-  
-
+        - { name: knp_menu.menu_builder, method: createNavMenu, alias: colmeMenuLeft }

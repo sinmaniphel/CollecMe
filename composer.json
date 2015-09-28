@@ -26,10 +26,10 @@
         "jms/translation-bundle": "1.1.*",
         "friendsofsymfony/user-bundle": "~2.0@dev",
         "liip/imagine-bundle": "^1.3",
-        "braincrafted/bootstrap-bundle": "2.0",
+        "braincrafted/bootstrap-bundle": "2.1",
         "twbs/bootstrap": "3.3.*",
-        "egeloen/ckeditor-bundle": "^3.0"
-        "knplabs/knp-menu-bundle": "^2.0"
+        "egeloen/ckeditor-bundle": "^3.0",
+        "knplabs/knp-menu-bundle": "dev-master"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"

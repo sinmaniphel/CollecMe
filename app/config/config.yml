@@ -122,7 +122,10 @@ liip_imagine:
           quality: 60
           filters:
             thumbnail: { size: [640,480], mode:inset }
-    
+
+knp_menu:
+  twig:
+    template: CollecMeCollectionBundle:KNP:menu.html.twig
 # Swiftmailer Configuration
 # swiftmailer:
 #     transport: "%mailer_transport%"
