@@ -85,6 +85,27 @@ fos_user:
     firewall_name: main
     user_class: CollecMe\CollectionBundle\Entity\AppUser
 
+# JMS automagic translation framework
+jms_translation:
+    source_language: en
+    locales: [fr,en,de]
+
+    configs:
+      # Use the -app config to extract all translations
+        app:
+            dirs: [%kernel.root_dir%, %kernel.root_dir%/../src,%kernel.root_dir%/Resources/translations]
+            output_dir: %kernel.root_dir%/Resources/translations
+            ignored_domains: [routes]
+            excluded_names: ["*TestCase.php", "*Test.php"]
+            excluded_dirs: [cache, data, logs]
+            extractors: [jms_i18n_routing]
+
+jms_i18n_routing:
+    default_locale: fr
+    locales: [fr, en, de]
+    strategy: prefix_except_default
+
+    
 # Imagine image bundle
 liip_imagine:
     resolvers:
@@ -101,7 +122,10 @@ liip_imagine:
           quality: 60
           filters:
             thumbnail: { size: [640,480], mode:inset }
-    
+
+knp_menu:
+  twig:
+    template: CollecMeCollectionBundle:KNP:menu.html.twig
 # Swiftmailer Configuration
 # swiftmailer:
 #     transport: "%mailer_transport%"

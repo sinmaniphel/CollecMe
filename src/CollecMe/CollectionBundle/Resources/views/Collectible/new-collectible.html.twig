@@ -1,0 +1,80 @@
+{% extends 'CollecMeCollectionBundle::colme_layout.html.twig'%}
+{% trans_default_domain "item" %}
+
+{% block script %}
+{{parent()}}
+{% javascripts
+'@CollecMeCollectionBundle/Resources/public/js/cm-itemedit-functions.js'
+%}
+<script type="text/javascript" src="{{ asset_url }}"></script>
+
+{% endjavascripts %}
+{% endblock %}
+
+{% block style %}
+{{parent()}}
+{% endblock %}
+
+{% block fos_user_content %}
+
+
+{{ form_start(form) }}
+
+
+<div class="page-header" >
+  {{ form_errors(form.colName) }};
+  <h1>
+    {{ form_widget(form.colName) }}
+  </h1>
+  </div>
+
+<div class="row cm-it-main">
+  <div class="cm-it-main-pic col-md-6 col-lg-6 thumbnail">
+    <img
+       src="{{'/img/sample1.jpg' | imagine_filter('it_md_thumb')}}"
+       alt="alternate text"/>
+  </div>
+  <div class="col-md-6 col-lg-6 cm-it-main-content">
+    <!-- Navigation tab -->
+
+    <ul class="nav nav-tabs">
+      <li role="presentation" class="active">
+        <a href="#summary"
+           aria-controls="summary"
+           role="tab"
+           data-toggle="tab"
+           >
+          {% trans %}main.summary{% endtrans %}
+        </a>
+      </li>
+      <li role="presentation" >
+        <a href="#caracteristics"
+           aria-controls="caracteristics"
+           role="tab"
+           data-toggle="tab"
+           >
+          {% trans %}main.caracteristics{% endtrans %}
+        </a>
+      </li>
+    </ul>
+
+    <!-- And now for the content -->
+    <div class="tab-content">
+      <div role="tabpanel" class="tab-pane active" id="summary">
+        <div id="summary_edit">
+          {{ form_row(form.colDescription) }}
+        </div>
+        <textarea name="ta_test" id="ta_test">Contenu Initial !</textarea>
+      </div>
+      <div role="tabpanel" class="tab-pane" id="caracteristics">
+        Size : 7/8<br/>
+        Origin : Japan<br/>
+        Brand : Aeroshell<br/>
+        Maker : Aeroshell<br/>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{ form_end(form) }}
+{% endblock %}
