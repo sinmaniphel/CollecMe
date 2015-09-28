@@ -1,0 +1,4 @@
+cd $OPENSHIFT_REPO_DIR
+bower install
+php app/console assets:install
+php app/console assetic:dump
