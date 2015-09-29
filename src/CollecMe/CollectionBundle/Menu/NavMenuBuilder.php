@@ -34,6 +34,8 @@ class NavMenuBuilder extends ContainerAware
         $menu->addChild("my.collections",
                         array('route' => 'route_item_list'))
              ->setExtra('translation_domain','my');
+
+        $menu['my.collections']->setAttribute('id','my_collections');
         if(isset($options['user.collections'])) {
             foreach($options['user.collections'] as $collection) {
                 $menu['my.collections']->addChild($collection->name,array('route' => 'homepage'));
