@@ -32,7 +32,7 @@ class NavMenuBuilder extends ContainerAware
         $menu->addChild("News",array('route' => 'route_item_list'));
 
         $menu->addChild("my.collections",
-                        array('route' => 'route_item_list'))
+                        array('uri' => 'collection/list'))
              ->setExtra('translation_domain','my');
 
         $menu['my.collections']->setAttribute('id','my_collections');

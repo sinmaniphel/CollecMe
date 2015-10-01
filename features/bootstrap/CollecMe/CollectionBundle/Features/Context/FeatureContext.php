@@ -1,4 +1,5 @@
 <?php
+namespace CollecMe\CollectionBundle\Features\Context;
 
 use Behat\Behat\Context\Context;
 use Behat\Behat\Context\SnippetAcceptingContext;
@@ -47,24 +48,24 @@ class FeatureContext implements Context, SnippetAcceptingContext
         $login = $page->findById("username");
         $password = $page->findById("password");
         $submit = $page->findButton("submit");
-        
+
         if($page == null) {
             throw new \Exception('Could not get the page');
         }
         if($form == null) {
             echo $page->getHtml();
             throw new \Exception('Could not get the form');
-            
+
         }
 
         $login->setValue($arg1);
         $password->setValue($arg2);
         $form->submit();
-        
+
     }
 
 
-    private $currentElement;
+    private $said;
     /**
      * @When I look at the navigation bar
      */
@@ -72,13 +73,13 @@ class FeatureContext implements Context, SnippetAcceptingContext
     {
         $page = $this->session->getPage();
 
-        $this->currentElement = $page->findById('my-nav-left');
-        if($this->currentElement == null) {
+        $this->said = $page->findById('my-nav-left');
+        if($this->said == null) {
             echo $page->getHtml();
             throw new \Exception('Cannot find nav bar in page ');
         }
 
-        
+
     }
 
     /**
@@ -86,9 +87,10 @@ class FeatureContext implements Context, SnippetAcceptingContext
      */
     public function thereShouldBeAMenuItemToAccessMyCollections()
     {
-        if(!$this->currentElement->has('css','#my_collections')) {
+        if(!$this->said->has('css','li#my_collections')) {
             throw new \Exception('could not find the collections item');
         }
+        $this->said = $this->said->find('css','#my_collections');
     }
 
     /**
@@ -96,7 +98,9 @@ class FeatureContext implements Context, SnippetAcceptingContext
      */
     public function saidItemShouldNotHaveAnySubItem()
     {
-        throw new PendingException();
+        if($this->said->has('css','ul')) {
+            throw new \Exception('there should not a sub item to '.$this->said->getTagName());
+        }
     }
 
     /**
@@ -104,23 +108,25 @@ class FeatureContext implements Context, SnippetAcceptingContext
      */
     public function iHaveANumberOfCollections()
     {
-        throw new PendingException();
+        // Skip that, there is no way to check it at that time
     }
 
-    /**
-     * @Then there should be an item for my collections
-     */
-    public function thereShouldBeAnItemForMyCollections()
-    {
-        throw new PendingException();
-    }
-
+   
     /**
      * @Then that menu item should redirect me to a page listing my collections
      */
     public function thatMenuItemShouldRedirectMeToAPageListingMyCollections()
     {
-        throw new PendingException();
+        $link = $this->said->find('xpath','a');
+        if(null==$link)
+        {
+            throw new \Exception('there should be a link associated to the menu item');
+        }
+        $href = $link->getAttribute('href');
+        
+        if(0!==strcmp('collection/list',$href)) {
+            throw new \Exception("expected link collection/list and foud ".$href);
+        }
     }
 
     /**
@@ -128,13 +134,72 @@ class FeatureContext implements Context, SnippetAcceptingContext
      */
     public function thereShouldBeASubMenuItemForEachCollection()
     {
-        throw new PendingException();
+        if(!$this->said->has('css','ul')) {
+            throw new \Exception('there should a sub item to '.$this->said->getTagName());
+        }
+
     }
 
     /**
      * @Then the sub menu item should redirect me to a corresponding collection
      */
     public function theSubMenuItemShouldRedirectMeToACorrespondingCollection()
+    {
+        throw new PendingException();
+    }
+
+    
+    
+   
+  
+   
+    /**
+     * @When I am on the page listing my collections
+     */
+    public function iAmOnThePageListingMyCollections()
+    {
+        $this->session->visit("http://localhost:8000/collection/list");
+        if($this->session->getStatusCode()!=200) {
+            throw new \Exception('Expected status 200, got '.$this->session->getStatusCode());
+        }
+    }
+
+    /**
+     * @Then there should be one summarized content for each collection
+     */
+    public function thereShouldBeOneSummarizedContentForEachCollection()
+    {
+        throw new PendingException();
+    }
+
+    /**
+     * @Then the summarized content should include a picture
+     */
+    public function theSummarizedContentShouldIncludeAPicture()
+    {
+        throw new PendingException();
+    }
+
+    /**
+     * @Then the summarized content should include a rich text description
+     */
+    public function theSummarizedContentShouldIncludeARichTextDescription()
+    {
+        throw new PendingException();
+    }
+
+    /**
+     * @Then there should be a button prompting me to add a new collection
+     */
+    public function thereShouldBeAButtonPromptingMeToAddANewCollection()
+    {
+        throw new PendingException();
+    }
+
+    /**
+     * @When said button should direct me to a page allowing me to add a new collection
+     */
+    public function saidButtonShouldDirectMeToAPageAllowingMeToAddANewCollection()
     {
         throw new PendingException();
     }
