@@ -26,7 +26,21 @@ class CollectionKind(models.Model):
     ck_sci_name = models.CharField(max_length=64)
     ck_description = models.TextField()
 
-
+class CollectionKindRelationship(models.Model):
+    
+    rel_types = [
+        ("SUB","Sub-category"),
+        ("COS","Cousin catgeory"),
+        ("XXX","Cross references"),
+        ("LOS","Loosely related")
+    ]    
+    
+    ckr_colkind_one = models.ForeignKey(CollectionKind)
+    ckr_colkind_two = models.ForeignKey(CollectionKind)
+    ckr_relkind = models.CharField(max_length=3,
+                                   choices=rel_types,
+                                   default="LOS")
+    
 
 '''
 This one is going to be a headache in the whole development process.
@@ -52,6 +66,7 @@ For now we will associated a type with a nomenclature
 class CollectableType(models.Model):
     ct_name = models.CharField(max_length=256)
     ct_nomenclature = models.ForeignKey(nomenclature.Nomenclature)
+    ct_description = models.TextField()
 
 
 '''
@@ -71,7 +86,6 @@ class Collectable(models.Model):
     
     col_name = models.CharField(max_length=256,null=False)
     col_main_picture = models.FileField(upload_to=user_directory_path)
-    # A collectable can be in several collections
     col_description = models.TextField()
     #
     def __str__(self):
@@ -82,5 +96,6 @@ class CollectableInstance(models.Model):
     ci_owner = models.ForeignKey(User, on_delete=models.CASCADE)
     # nullable = true
     ci_instanceof = models.ForeignKey(Collectable)
+    ci_typeof = models.ForeignKey(CollectableType)
+    # An instance can be in several collections
     ci_curcol = models.ManyToManyField(CuratedCollection)
-    

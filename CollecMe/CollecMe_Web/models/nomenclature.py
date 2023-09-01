@@ -25,6 +25,5 @@ class NomenclatureField(models.Model):
     nf_restricted_values = models.BooleanField(default=False)
     
 class NomenclatureFieldAllowedValues(models.Model):
-    
-    
+    nfav_nom_field = models.ForeignKey(NomenclatureField)    
     nfav_val = models.CharField(max_length=100)
