@@ -1,6 +1,6 @@
 body {
-  background-color: darkslategray;
   min-height: 100vh;
+  width: 100%;
   min-height: -webkit-fill-available;
 
 }
@@ -16,6 +16,21 @@ main {
   height: 100vh;
   height: -webkit-fill-available;
   max-height: 100vh;
+  max-width: 100%;
   overflow-x: auto;
   overflow-y: hidden;
+}
+
+
+.bg-general {
+  --cm-bg-gray-rgb: 50, 50, 50;
+  --bs-bg-opacity:1;
+  background-color:rgba(var(--cm-bg-gray-rgb),var(--bs-bg-opacity)) !important;
+
+}
+
+a.navlink:hover { 
+  --cm-bg-gray-hover: 100,100,100
+  color: rgb(var(--cm-bg-gray-hover)) !important; 
+
 }

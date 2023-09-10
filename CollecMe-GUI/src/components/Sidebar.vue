@@ -1,51 +1,37 @@
 <script setup lang="ts">
 import HomeIcon from 'vue-material-design-icons/Home.vue';
 import BookHeartIcon from 'vue-material-design-icons/BookHeart.vue';
+import HumanQueueIcon from 'vue-material-design-icons/HumanQueue.vue';
 
 </script>
 
 <template>
-    <div class="d-flex flex-column flex-shrink-0 p-3 bg-dark align-middle" style="width: 280px; height: 100%;">
+    <div class="d-flex flex-column flex-shrink-0 p-3 bg-general align-middle" style="width: 280px; height: 100%;">
         <a href="/" class="navbar-brand nav-link link-light">CollecMe
         </a>
         <hr>
         <ul class="nav nav-pills flex-column mb-auto">
             <li class="nav-item">
-                <a href="#" class="nav-link active" aria-current="page">
+                <a href="#" class="nav-link active shadow" aria-current="page">
                     <HomeIcon></HomeIcon>
                     Home
                 </a>
             </li>
             <li>
-                <a href="#" class="nav-link link-light">
+                <a href="#" class="nav-link link-light shadow">
                     <BookHeartIcon/>
                     My Collections
                 </a>
             </li>
             <li>
-                <a href="#" class="nav-link link-light">
-                    <svg class="bi me-2" width="16" height="16">
-                        <use xlink:href="#table"></use>
-                    </svg>
-                    Orders
+                <a href="#" class="nav-link link-light shadow">
+                    <HumanQueueIcon/>
+                    <!--DotsCircle-->
+                    <!--GoogleCirclesExtended-->
+                    Community
                 </a>
             </li>
-            <li>
-                <a href="#" class="nav-link link-light">
-                    <svg class="bi me-2" width="16" height="16">
-                        <use xlink:href="#grid"></use>
-                    </svg>
-                    Products
-                </a>
-            </li>
-            <li>
-                <a href="#" class="nav-link link-light">
-                    <svg class="bi me-2" width="16" height="16">
-                        <use xlink:href="#people-circle"></use>
-                    </svg>
-                    Customers
-                </a>
-            </li>
+            
         </ul>
         <hr>
         <div class="dropdown">
