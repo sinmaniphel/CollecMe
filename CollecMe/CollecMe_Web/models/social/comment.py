@@ -7,6 +7,7 @@ import core, nomenclature
 Will be a comment or a post. Whatever
 '''
 class Comment(models.Model):
+    com_item = models.ForeignKey(core.CollectableInstance,on_delete=models.CASCADE)
     com_timestamp = models.DateTimeField(auto_now=True)
     com_author = models.ForeignKey(User)
     com_text = models.TextField()
@@ -26,10 +27,12 @@ class ReactionType(models.TextChoices):
 
 
 class CommentReaction(models.Model):
+    creac_comment = models.ForeignKey(Comment,on_delete=models.CASCADE)
     creac_timestamp = models.DateTimeField(auto_now=True)
     creac_author = models.ForeignKey(User)
     creac_type = models.CharField(max_length=3,
                                   choices=ReactionType.choices,
                                   default=ReactionType.LIKE
                                   )
+    
     
