@@ -8,17 +8,17 @@ let firstname: String = 'Roger'
 
 <template>
   <main class="w-100">
-    <div id="wrapper" class="d-inline-block h-100 w-100">
-
-      <Sidebar></Sidebar>
-      <div class="input-group">
-        <div class="form-outline">
-          <input type="search" id="form1" class="form-control" />
-          <label class="form-label" for="form1">Search</label>
+    <div id="wrapper" class="d-inline-block h-100 w-100 container-fluid">
+      <div class="row h-100 " >
+          <Sidebar></Sidebar>
+        <div class="col">
+          <div class="row">
+            <TopNav/>
+          </div>
+          <div class="row text-light">
+            <RouterView/>
+          </div>
         </div>
-        <button type="button" class="btn btn-primary">
-          <i class="fas fa-search"></i>
-        </button>
       </div>
       <!--header>
     
@@ -33,7 +33,7 @@ let firstname: String = 'Roger'
       </nav>
     </div>
   </header-->
-      <RouterView />
+
     </div>
   </main>
 </template>
